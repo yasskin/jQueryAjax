@@ -1,0 +1,30 @@
+﻿jQuery Ajax Functions
+
+$(selector).load() : Loads HTML data from the server
+$.get() and $.post() : Get raw data from the server
+$.getJSON() : Get/Post and return JSON
+$.ajax() : provides core functionality
+
+// Using load()
+
+$(selector).load(url, data, callback) allows HTML content to be loaded from a server and added to a DOM object:
+
+$(document).ready(function() {
+	$('#HelpButton).click(function() {
+		$('#MyDiv).load('HelpDetails.html');
+	})
+});
+
+// data can be passed to the server using load(url, data):
+
+$('#MyDiv).load('GetCustomers.aspx', {PageSize:25});
+
+// using a callback function with load()
+
+$('#OutputDIv').load('NotFound.html', 
+	function (response, status, xhr) {
+	if (status == "error") {
+		alert(xhr.statusText);
+	}
+)};
+
